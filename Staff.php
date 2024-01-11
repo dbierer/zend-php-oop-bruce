@@ -10,15 +10,14 @@ class Staff extends User
 {
     private const ROLE = 'Staff';
     private $manager;
-    
-    public function set($data)
+
+    public function __construct($data)
     {
         foreach($data as $key => $value) {
             $this->$key = $value;
         }
-        return;
-
     }
+
     public function getFullInfo()
     { 
         $output = [
@@ -34,5 +33,10 @@ class Staff extends User
     public function getManager()
     {
         return $this->manager;
+    }
+
+    public function __toString()
+    {
+        return $this->getFullName();
     }
 }

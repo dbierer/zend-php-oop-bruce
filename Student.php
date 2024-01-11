@@ -11,13 +11,11 @@ class Student extends User
     private const ROLE = 'Student';
     private $major;
     
-    public function set($data)
+    public function __construct($data)
     {
         foreach($data as $key => $value) {
             $this->$key = $value;
         }
-        return;
-
     }
     
     public function getFullInfo()
@@ -35,5 +33,15 @@ class Student extends User
     public function getMajor()
     {
         return $this->major;
+    }
+
+    public function __toString()
+    {
+        return $this->getFullName();
+    }
+
+    public function __call($name, $arguments)
+    {
+        return "Method $name does not exist";
     }
 }

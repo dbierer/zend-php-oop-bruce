@@ -10,8 +10,7 @@
     require('Admin.php');
 
 
-    $user1 = new Student;
-    $user1->set([
+    $user1 = new Student([
         'first' => 'Herman',
         'last' => 'Munster',
         'major' => 'Social Services',
@@ -19,8 +18,7 @@
         'id' => '123456'
     ]);
 
-    $user2 = new Staff;
-    $user2->set([
+    $user2 = new Staff([
         'first' => 'Fred',
         'last' => 'Flintstone',
         'manager' => 'Mr. Slate',
@@ -28,8 +26,7 @@
         'id' => '653321'
     ]);
 
-    $user3 = new Admin;
-    $user3->set([
+    $user3 = new Admin([
         'first' => 'Evil',
         'last' => 'Operator',
         'department' => 'Information Prevention',
@@ -38,26 +35,28 @@
     ]);
 ?>
 
-<h2> <?= $user1->getFullName() ?></h2>
+<h2> <?= $user1?></h2>
 <?php foreach($user1->getFullInfo() as $key => $value): ?>
     <?= $key ?>: <?= $value ?> <br/>
 <?php endforeach; ?>
+Professor: <?= $user1->getProfessor() ?>
 <hr/> 
 
-<h2> <?= $user2->getFullName() ?></h2>
+<h2> <?= $user2 ?></h2>
 <?php foreach($user2->getFullInfo() as $key => $value): ?>
     <?= $key ?>: <?= $value ?> <br/>
 <?php endforeach; ?>
 <hr/> 
 
-<h2> <?= $user3->getFullName() ?></h2>
+<h2> <?= $user3 ?></h2>
 <?php foreach($user3->getFullInfo() as $key => $value): ?>
     <?= $key ?>: <?= $value ?> <br/>
 <?php endforeach; ?>
+Manager: <?= $user3->manager ?>
 <hr/> 
 <h2>Summary Info</h2>
 Majors: <?= $user1->getMajor() ?><br/>
 Managers: <?= $user2->getManager() ?><br/>
-Departments: <?= $user3->getDepartment() ?><br/>
+Departments: <?= $user3->get() ?><br/>
 </body>
 </html>

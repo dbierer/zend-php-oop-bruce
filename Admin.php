@@ -11,14 +11,13 @@ class Admin extends User
     private const ROLE = 'Admin';
     private $department;
 
-    public function set($data)
+    public function __construct($data)
     {
         foreach($data as $key => $value) {
             $this->$key = $value;
         }
-        return;
-
     }
+
     public function getFullInfo()
     { 
         $output = [
@@ -31,8 +30,18 @@ class Admin extends User
         return $output;
     }
 
-    public function getDepartment()
+    public function getMajor()
     {
-        return $this->department;
+        return $this->major;
+    }
+
+    public function __toString()
+    {
+        return $this->getFullName();
+    }
+
+    public function __get($value)
+    {
+        return "Parameter $value does not exist";
     }
 }
