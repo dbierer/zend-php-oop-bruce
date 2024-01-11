@@ -5,9 +5,12 @@
 <body>
 <h1>Create a class</h1>
 <?php 
-    require('User.php');
+    require('Student.php');
+    require('Staff.php');
+    require('Admin.php');
 
-    $user1 = new User;
+
+    $user1 = new Student;
     $user1->set([
         'first' => 'Herman',
         'last' => 'Munster',
@@ -16,13 +19,22 @@
         'id' => '123456'
     ]);
 
-    $user2 = new User;
+    $user2 = new Staff;
     $user2->set([
         'first' => 'Fred',
         'last' => 'Flintstone',
-        'major' => 'Landscaping',
+        'manager' => 'Mr. Slate',
         'email' => 'fredf@example.edu',
         'id' => '653321'
+    ]);
+
+    $user3 = new Admin;
+    $user3->set([
+        'first' => 'Evil',
+        'last' => 'Operator',
+        'department' => 'Information Prevention',
+        'email' => 'secure@example.edu',
+        'id' => '666666'
     ]);
 ?>
 
@@ -38,7 +50,14 @@
 <?php endforeach; ?>
 <hr/> 
 
-<a href="../lab2/">2 - Super Class</a>
-
+<h2> <?= $user3->getFullName() ?></h2>
+<?php foreach($user3->getFullInfo() as $key => $value): ?>
+    <?= $key ?>: <?= $value ?> <br/>
+<?php endforeach; ?>
+<hr/> 
+<h2>Summary Info</h2>
+Majors: <?= $user1->getMajor() ?><br/>
+Managers: <?= $user2->getManager() ?><br/>
+Departments: <?= $user3->getDepartment() ?><br/>
 </body>
 </html>
