@@ -4,9 +4,9 @@
  * Defines user data structure
  * 
  */
-class User
+abstract class User
 {
-    private const DB = 'school';
+    protected const DB = 'school';
     protected $first;
     protected $last;
     protected $email;
@@ -18,6 +18,7 @@ class User
         return $this->first . ' ' . $this->last;
     }
 
+    public abstract function getFullInfo();
 
 
 }
