@@ -1,10 +1,13 @@
 <?php
+
+require_once('UserInterface.php');
+
 /**
  * Super class
  * Defines user data structure
  * 
  */
-abstract class User
+abstract class User implements UserInterface
 {
     protected const DB = 'school';
     protected $first;
