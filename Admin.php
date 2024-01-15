@@ -30,7 +30,7 @@ class Admin extends User
         return $output;
     }
 
-    public function getMajor()
+    public function getDepartment()
     {
         return $this->major;
     }

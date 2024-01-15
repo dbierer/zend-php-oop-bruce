@@ -8,6 +8,7 @@
     require('Student.php');
     require('Staff.php');
     require('Admin.php');
+    require('ReportEntry.php');
 
 
     $user1 = new Student([
@@ -33,6 +34,8 @@
         'email' => 'secure@example.edu',
         'id' => '666666'
     ]);
+
+    $reportEntry = new ReportEntry($user1);
 ?>
 
 <h2> <?= $user1?></h2>
@@ -57,6 +60,11 @@ Manager: <?= $user3->manager ?>
 <h2>Summary Info</h2>
 Majors: <?= $user1->getMajor() ?><br/>
 Managers: <?= $user2->getManager() ?><br/>
-Departments: <?= $user3->get() ?><br/>
+Departments: <?= $user3->getDepartment() ?><br/>
+<hr/>
+<h2>Report Entry: <?= $reportEntry->getFullName() ?></h2>
+<?php foreach($reportEntry->getRecord() as $key => $value): ?>
+    <?= $key ?>: <?= $value ?> <br/>
+<?php endforeach; ?>
 </body>
 </html>
