@@ -13,4 +13,4 @@ Interfaces
 
 Type Hinting
 
-Custom Exception
+Custom Exception Class
