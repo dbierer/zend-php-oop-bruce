@@ -1,6 +1,7 @@
 <?php
 
 require_once ('User.php');
+require_once ('NoMethodException.php');
 
 /**
  * Subclass defining Student user
@@ -42,6 +43,13 @@ class Student extends User
 
     public function __call($name, $arguments)
     {
-        return "Method $name does not exist";
+        try {
+            throw new NoMethodException("Method $name does not exist");
+        } catch (Exception $e) {
+            echo $e->getMessage() . '<br/>';
+        } finally {
+            echo '<p>Back to your regularly scheduled program...</p>';
+        }
+
     }
 }

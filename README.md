@@ -12,3 +12,5 @@ Abstract Class and Method
 Interfaces
 
 Type Hinting
+
+Custom Exception
