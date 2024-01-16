@@ -2,6 +2,8 @@
 
 require_once ('User.php');
 require_once ('NoMethodException.php');
+require_once ('FullNameTrait.php');
+require_once ('StudentTrait.php');
 
 /**
  * Subclass defining Student user
@@ -9,6 +11,12 @@ require_once ('NoMethodException.php');
  */
 class Student extends User
 {
+    use FullNameTrait, StudentTrait{
+        FullNameTrait::getFullName insteadof StudentTrait;
+        FullNameTrait::getFullName as traitFullName;
+        StudentTrait::getFullName as studentFullName;
+    }
+
     private const ROLE = 'Student';
     private $major;
     

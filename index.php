@@ -66,5 +66,12 @@ Departments: <?= $user3->getDepartment() ?><br/>
 <?php foreach($reportEntry->getRecord() as $key => $value): ?>
     <?= $key ?>: <?= $value ?> <br/>
 <?php endforeach; ?>
+<hr/>
+<h2>Traits of Student:</h2>
+Trait Full Name: <?= $user1->traitFullName()  ?><br/>
+Trait Last Name: <?= $user1->getMajor() ?><br/>
+Student Full Name: <?= $user1->studentFullName() ?><br/>
+Student Major: <?= $user1->getMajor() ?><br/>
+
 </body>
 </html>

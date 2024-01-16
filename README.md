@@ -14,3 +14,5 @@ Interfaces
 Type Hinting
 
 Custom Exception Class
+
+Traits
