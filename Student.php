@@ -1,6 +1,9 @@
 <?php
 
 require_once ('User.php');
+require_once ('NoMethodException.php');
+require_once ('FullNameTrait.php');
+require_once ('StudentTrait.php');
 
 /**
  * Subclass defining Student user
@@ -8,6 +11,12 @@ require_once ('User.php');
  */
 class Student extends User
 {
+    use FullNameTrait, StudentTrait{
+        FullNameTrait::getFullName insteadof StudentTrait;
+        FullNameTrait::getFullName as traitFullName;
+        StudentTrait::getFullName as studentFullName;
+    }
+
     private const ROLE = 'Student';
     private $major;
     
@@ -42,6 +51,13 @@ class Student extends User
 
     public function __call($name, $arguments)
     {
-        return "Method $name does not exist";
+        try {
+            throw new NoMethodException("Method $name does not exist");
+        } catch (Exception $e) {
+            echo $e->getMessage() . '<br/>';
+        } finally {
+            echo '<p>Back to your regularly scheduled program...</p>';
+        }
+
     }
 }
