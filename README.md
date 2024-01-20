@@ -21,4 +21,4 @@ Prepared Statements
 
 Stored Procedure
 
-Transackions
+Transactions
