@@ -22,3 +22,5 @@ Prepared Statements
 Stored Procedure
 
 Transactions
+
+Validate Email Address
