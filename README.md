@@ -16,3 +16,6 @@ Type Hinting
 Custom Exception Class
 
 Traits
+
+Prepared Statements
+
