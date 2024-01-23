@@ -16,3 +16,11 @@ Type Hinting
 Custom Exception Class
 
 Traits
+
+Prepared Statements
+
+Stored Procedure
+
+Transactions
+
+Validate Email Address
